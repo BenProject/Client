@@ -1,0 +1,23 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb","prettier", "eslint:recommended", "plugin:react/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "prettier/prettier": ["error"],
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off"
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}
