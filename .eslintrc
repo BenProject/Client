@@ -1,11 +1,11 @@
 {
   "parser": "babel-eslint",
-  "extends": ["airbnb","prettier", "eslint:recommended", "plugin:react/recommended"],
+  "extends": ["prettier", "eslint:recommended", "plugin:react/recommended"],
   "plugins": ["prettier"],
   "rules": {
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
-    "prettier/prettier": ["error"],
+    "prettier/prettier": ["warn"],
     "no-unused-vars": "warn",
     "no-console": "off",
     "func-names": "off",
