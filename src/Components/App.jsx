@@ -1,25 +1,22 @@
+import { Button, ThemeProvider } from '@material-ui/core';
 import React from 'react';
-import { lightTheme, darkTheme } from './Themes/themes.js';
-import { ThemeProvider } from 'styled-components';
-import { useToggleTheme } from './Themes/ToggleComponents/ToggleTheme';
-import Toggeler from './Themes/ToggleComponents/Toggeler.jsx';
-import { GlobalStyles } from './Themes/GlobalStyles.js';
+import { useTheme } from './Themes/useTheme';
+import ThemeToggler from './Themes/ThemeToggler';
 
 const App = () => {
-  const [theme, themeToggler, mountedComponent] = useToggleTheme();
-  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+  const [theme, ToggleTheme, mountedComponent, darkState] = useTheme();
 
   if (!mountedComponent) {
     return <div></div>;
   }
-
+  console.log(theme.palette.type);
   return (
-    <ThemeProvider theme={themeMode}>
-      <GlobalStyles />
-      <div className="app">
-        <Toggeler theme={theme} toggleTheme={themeToggler}></Toggeler>
-      </div>
-    </ThemeProvider>
+    <div className="app-header">
+      <ThemeProvider theme={theme}>
+        <ThemeToggler isDarkTheme={darkState} ToggleTheme={ToggleTheme} />
+        <Button color="primary">button</Button>
+      </ThemeProvider>
+    </div>
   );
 };
 

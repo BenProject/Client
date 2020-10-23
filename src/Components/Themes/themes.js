@@ -1,13 +1,9 @@
 export const lightTheme = {
-  backgroundColor: '#FFF',
-  textColor: '#363537',
-  toggleBorder: '#FFF',
-  background: '#000',
+  mainPrimaryColor: '#000',
+  mainSecondaryColor: '#fafafa',
 };
 
 export const darkTheme = {
-  backgroundColor: '#363537',
-  textColor: '#FAFAFA',
-  toggleBorder: '#6B8096',
-  background: '#000',
+  mainPrimaryColor: '#fafafa',
+  mainSecondaryColor: '#000',
 };
