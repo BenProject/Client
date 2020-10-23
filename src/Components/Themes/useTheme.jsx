@@ -1,18 +1,15 @@
 import { createMuiTheme } from '@material-ui/core';
-import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { lightTheme, darkTheme } from './themes';
+import { toggleTheme } from '../../Redux/Actions/ThemeActions';
+import { useDispatch } from 'react-redux';
 
 export const useTheme = () => {
-  const [darkState, setDarkState] = useState(false);
-  const [mountedComponent, setMountedComponent] = useState(false);
-  const setMode = (mode) => {
-    window.localStorage.setItem('theme', mode);
-    setDarkState(mode);
-  };
+  const darkState = useSelector((state) =>
+    state.getIn(['Themes', 'isDarkTheme'])
+  );
 
-  const ToggleTheme = () => {
-    setMode(!darkState);
-  };
+  const dispatch = useDispatch();
 
   const theme = createMuiTheme({
     palette: {
@@ -30,11 +27,5 @@ export const useTheme = () => {
     },
   });
 
-  useEffect(() => {
-    const localThemeState = window.localStorage.getItem('theme') === 'true';
-    localThemeState ? setDarkState(localThemeState) : setMode(false);
-    setMountedComponent(true);
-  }, []);
-
-  return [theme, ToggleTheme, mountedComponent, darkState];
+  return [theme, darkState, () => dispatch(toggleTheme())];
 };
