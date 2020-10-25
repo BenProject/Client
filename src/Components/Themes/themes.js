@@ -5,7 +5,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-  mainPrimaryColor: '#393e46',
-  mainSecondaryColor: '#000',
-  textColor: '#4ecca3',
+  mainPrimaryColor: '#222831',
+  mainSecondaryColor: '#393e46',
+  textColor: '#00adb5',
 };
