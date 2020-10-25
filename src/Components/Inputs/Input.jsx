@@ -1,9 +1,24 @@
 import React from 'react';
-import { Input as StyledInput, TextField } from '@material-ui/core';
+import { Input as StyledInput, makeStyles } from '@material-ui/core';
 import { string } from 'prop-types';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '&:after': {
+      borderBottomColor: theme.palette.secondary.main, // Solid underline on focus
+    },
+  },
+}));
+
 export default function Input({ type, label }) {
-  return <StyledInput type={type} placeholder={label}></StyledInput>;
+  const classes = useStyles();
+  return (
+    <StyledInput
+      className={classes.root}
+      type={type}
+      placeholder={label}
+    ></StyledInput>
+  );
 }
 
 Input.propTypes = {

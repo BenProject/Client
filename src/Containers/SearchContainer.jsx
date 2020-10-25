@@ -10,6 +10,7 @@ import {
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    backgroundColor: theme.palette.primary.main,
     display: 'flex',
     justifyContent: 'center',
   },
@@ -18,14 +19,10 @@ const useStyles = makeStyles((theme) => ({
 export default function SearchContainer() {
   const classes = useStyles();
   return (
-    <Card className={classes.root}>
-      <Input
-        className={classes.input}
-        label={searchInputLabel}
-        type="text"
-      ></Input>
+    <Card elevation={0} className={classes.root}>
+      <Input label={searchInputLabel} type="text"></Input>
       <Button buttonText={searchButtonLabel}></Button>
-      <Button href="ben" buttonText={advancedSearchButtonLabel}></Button>
+      <Button buttonText={advancedSearchButtonLabel}></Button>
     </Card>
   );
 }

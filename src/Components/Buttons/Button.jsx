@@ -1,4 +1,4 @@
-import { Button as StyledButton, makeStyles } from '@material-ui/core';
+import { Button as StyledButton } from '@material-ui/core';
 import React from 'react';
 import { string, func } from 'prop-types';
 import { Link } from '@material-ui/core';

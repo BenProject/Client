@@ -24,8 +24,11 @@ export const useTheme = () => {
           ? darkTheme.mainSecondaryColor
           : lightTheme.mainSecondaryColor,
       },
+      text: {
+        primary: darkState ? darkTheme.textColor : lightTheme.textColor,
+      },
     },
   });
 
-  return [theme, darkState, () => dispatch(toggleTheme())];
+  return [theme, () => dispatch(toggleTheme())];
 };
