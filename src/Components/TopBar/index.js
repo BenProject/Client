@@ -3,6 +3,9 @@ import { AppBar, makeStyles, Toolbar } from '@material-ui/core';
 import { array } from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
+  appbar: {
+    right: 'auto',
+  },
   toolbar: {
     justifyContent: 'space-between',
     backgroundColor: theme.palette.secondary.light,
@@ -13,7 +16,7 @@ export default function TopBar({ elements }) {
   const classes = useStyles();
 
   return (
-    <AppBar>
+    <AppBar className={classes.appbar}>
       <Toolbar className={classes.toolbar}>
         {elements.map((element) => {
           return element;
