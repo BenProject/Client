@@ -5,7 +5,7 @@ import { array } from 'prop-types';
 const useStyles = makeStyles((theme) => ({
   toolbar: {
     justifyContent: 'space-between',
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: theme.palette.secondary.light,
   },
 }));
 

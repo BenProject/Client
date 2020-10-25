@@ -1,11 +1,11 @@
 export const lightTheme = {
   mainPrimaryColor: '#fafafa',
-  mainSecondaryColor: '#fff',
+  mainSecondaryColor: 'rgb(25,118,210)',
   textColor: '#000',
 };
 
 export const darkTheme = {
-  mainPrimaryColor: '#222222',
-  mainSecondaryColor: '#fff',
-  textColor: '#e16428',
+  mainPrimaryColor: '#393e46',
+  mainSecondaryColor: '#000',
+  textColor: '#4ecca3',
 };
