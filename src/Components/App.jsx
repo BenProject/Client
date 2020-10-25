@@ -4,7 +4,7 @@ import { useTheme } from './Themes/useTheme';
 import SearchContainer from '../Containers/SearchContainer';
 import TopBarContainer from '../Containers/TopBarContainer';
 import PageContainer from '../Containers/PageContainer';
-import IconButton from './Buttons/IconButton';
+import { Route } from 'react-router-dom';
 
 const App = () => {
   const [theme, toggleTheme] = useTheme();
@@ -12,12 +12,10 @@ const App = () => {
     <div className="app-header">
       <ThemeProvider theme={theme}>
         <PageContainer>
-          <div>
-            <TopBarContainer toggleTheme={toggleTheme}></TopBarContainer>
-          </div>
-          <div>
+          <TopBarContainer toggleTheme={toggleTheme}></TopBarContainer>
+          <Route exact path="/">
             <SearchContainer></SearchContainer>
-          </div>
+          </Route>
         </PageContainer>
       </ThemeProvider>
     </div>
