@@ -5,7 +5,6 @@ import { Add, Home } from '@material-ui/icons';
 import IconButton from '../Components/Buttons/IconButton';
 import ThemeToggeler from '../Components/Themes/ThemeToggler';
 import { useSelector } from 'react-redux';
-import { topBarLabel } from '../Constants/labelConstants';
 
 export default function TopBarContainer({ toggleTheme }) {
   const darkState = useSelector((state) =>

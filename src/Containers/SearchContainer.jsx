@@ -8,7 +8,7 @@ import {
   searchInputLabel,
 } from '../Constants/labelConstants';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     backgroundColor: 'inherit',
     display: 'flex',
