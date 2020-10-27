@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     right: 'auto',
   },
   toolbar: {
+    height: '100%',
     justifyContent: 'space-between',
     backgroundColor: theme.palette.secondary.light,
   },

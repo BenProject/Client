@@ -1,12 +1,12 @@
 import { Button as StyledButton } from '@material-ui/core';
 import React from 'react';
 import { string, func } from 'prop-types';
-import { Link } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 export default function Button({ buttonText, onClick, href }) {
   if (href)
     return (
-      <Link underline="none" href={href}>
+      <Link className="no-text-decoration" to={href}>
         <StyledButton onClick={onClick}>{buttonText}</StyledButton>
       </Link>
     );

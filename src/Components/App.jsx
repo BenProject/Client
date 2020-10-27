@@ -5,6 +5,7 @@ import SearchContainer from '../Containers/SearchContainer';
 import TopBarContainer from '../Containers/TopBarContainer';
 import { Route } from 'react-router-dom';
 import Page from './Page';
+import AdvancedSearchContainer from '../Containers/AdvancedSearchContainer';
 
 const App = () => {
   const [theme, toggleTheme] = useTheme();
@@ -14,7 +15,10 @@ const App = () => {
         <Page>
           <TopBarContainer toggleTheme={toggleTheme}></TopBarContainer>
           <Route exact path="/">
-            <SearchContainer></SearchContainer>
+            <SearchContainer />
+          </Route>
+          <Route exact path="/advanced-search">
+            <AdvancedSearchContainer />
           </Route>
         </Page>
       </ThemeProvider>
