@@ -1,7 +1,7 @@
 import axios from 'axios';
 import config from '../../Config';
 
-export function getAllCategories() {
+export function fetchAllCategories() {
   return axios
     .get(`http://${config.serverUrl}/types/entities`)
     .then((res) => {
