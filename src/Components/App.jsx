@@ -4,8 +4,8 @@ import { useTheme } from './Themes/useTheme';
 import SearchContainer from '../Containers/SearchContainer';
 import TopBarContainer from '../Containers/TopBarContainer';
 import { Route } from 'react-router-dom';
-import Page from './Page';
-import AdvancedSearchContainer from '../Containers/AdvancedSearchContainer';
+import Page from './Page/Page';
+import AdvancedSearchContainer from '../Containers/AdvancedSearch/AdvancedSearchContainer';
 
 const App = () => {
   const [theme, toggleTheme] = useTheme();
@@ -13,13 +13,19 @@ const App = () => {
     <div className="app-header">
       <ThemeProvider theme={theme}>
         <Page>
-          <TopBarContainer toggleTheme={toggleTheme}></TopBarContainer>
-          <Route exact path="/">
-            <SearchContainer />
-          </Route>
-          <Route exact path="/advanced-search">
-            <AdvancedSearchContainer />
-          </Route>
+          <div className="grid-container">
+            <div className="grid-container__header">
+              <TopBarContainer toggleTheme={toggleTheme}></TopBarContainer>
+            </div>
+            <div className="grid-container__body">
+              <Route exact path="/">
+                <SearchContainer />
+              </Route>
+              <Route exact path="/advanced-search">
+                <AdvancedSearchContainer />
+              </Route>
+            </div>
+          </div>
         </Page>
       </ThemeProvider>
     </div>

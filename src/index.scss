@@ -18,6 +18,20 @@
     text-decoration: none;
 }
 
+.grid-container {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-rows: 1fr 6fr;
+    grid-template-areas: "header" "body";
+    .grid-container__header {
+        grid-area: header;
+    }
+    .grid-container__body {
+        grid-area: body;
+    }
+}
+
 body {
     position: flex;
     margin: auto;

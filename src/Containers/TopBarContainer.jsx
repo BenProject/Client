@@ -16,9 +16,14 @@ export default function TopBarContainer({ toggleTheme }) {
       elements={[
         <IconButton href="/" icon={<Home />} key="2"></IconButton>,
         <IconButton icon={<Add />} key="1"></IconButton>,
-        <img id="kick-logo" key="3" src="kick_without_colors.svg"></img>,
+        <img
+          alt="mini-kick"
+          id="kick-logo"
+          key="3"
+          src="kick_without_colors.svg"
+        ></img>,
         <ThemeToggeler
-          darkState={darkState}
+          isDarkTheme={darkState}
           toggleTheme={toggleTheme}
           key="4"
         ></ThemeToggeler>,

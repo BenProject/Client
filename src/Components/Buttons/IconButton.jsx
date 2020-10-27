@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconButton as StyledButton } from '@material-ui/core';
-import { elementType, func, string } from 'prop-types';
+import { func, object, string } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 export default function IconButton({ icon, onClick, href }) {
@@ -15,7 +15,7 @@ export default function IconButton({ icon, onClick, href }) {
 }
 
 IconButton.propTypes = {
-  icon: elementType.isRequired,
+  icon: object.isRequired,
   onClick: func,
   href: string,
 };

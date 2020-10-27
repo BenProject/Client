@@ -1,4 +1,5 @@
 const config = {};
-config.serverUrl = 'localhost:4000';
+config.serverUrl = 'http://localhost:4000';
+config.ontologyToHtmlDictionary = { key: 'id', value: 'type' };
 
 export default config;

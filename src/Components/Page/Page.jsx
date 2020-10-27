@@ -6,9 +6,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.main,
     width: '100%',
     height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
+    // display: 'flex',
+    // justifyContent: 'center',
+    // flexDirection: 'column',
   },
 }));
 

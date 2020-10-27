@@ -4,7 +4,9 @@ import { array } from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
+    position: 'sticky',
     right: 'auto',
+    top: 0,
   },
   toolbar: {
     height: '100%',

@@ -10,9 +10,11 @@ import {
 
 const useStyles = makeStyles(() => ({
   root: {
+    height: '90%',
     backgroundColor: 'inherit',
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
   },
 }));
 
@@ -20,12 +22,18 @@ export default function SearchContainer() {
   const classes = useStyles();
   return (
     <Card elevation={0} className={classes.root}>
-      <Input label={searchInputLabel} type="text"></Input>
-      <Button buttonText={searchButtonLabel}></Button>
-      <Button
-        href="advanced-search"
-        buttonText={advancedSearchButtonLabel}
-      ></Button>
+      <div>
+        <Input label={searchInputLabel} type="text"></Input>
+      </div>
+      <div>
+        <Button buttonText={searchButtonLabel}></Button>
+      </div>
+      <div>
+        <Button
+          href="advanced-search"
+          buttonText={advancedSearchButtonLabel}
+        ></Button>
+      </div>
     </Card>
   );
 }
