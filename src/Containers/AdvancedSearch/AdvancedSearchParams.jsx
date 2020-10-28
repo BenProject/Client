@@ -5,10 +5,13 @@ import config from '../../Config';
 import FieldList from '../../Components/FieldList/List';
 import './advancedSearch.css';
 import Button from '../../Components/Buttons/Button';
+import { useHistory } from 'react-router-dom';
+import { searchButtonLabel } from '../../Constants/labelConstants';
 
 export default function AdvancedSearchParams({ typeId }) {
   const [params, setParams] = useState(undefined);
   const [values, setValues] = useState({});
+  const history = useHistory();
 
   function handleChange(event) {
     values[event.target.name] = event.target.value;
@@ -17,7 +20,7 @@ export default function AdvancedSearchParams({ typeId }) {
 
   function handleClick(event) {
     event.preventDefault();
-    console.log(values);
+    history.push('/results/search?q=ben');
   }
 
   useEffect(() => {
@@ -50,7 +53,7 @@ export default function AdvancedSearchParams({ typeId }) {
         </div>
       </div>
       <div className="params__submit">
-        <Button onClick={handleClick} type="submit" buttonText={'חפש'}></Button>
+        <Button onClick={handleClick} type="submit" buttonText={searchButtonLabel}></Button>
       </div>
     </form>
   );
