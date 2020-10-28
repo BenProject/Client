@@ -3,7 +3,6 @@ import { string } from 'prop-types';
 import { fetchCategoryById } from '../../Services/Ontology/ontology.service';
 import config from '../../Config';
 import FieldList from '../../Components/FieldList/List';
-import { Card } from '@material-ui/core';
 import './advancedSearch.css'
 
 export default function AdvancedSearchParams({ typeId }) {

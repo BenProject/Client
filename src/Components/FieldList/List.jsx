@@ -2,13 +2,13 @@ import React from 'react';
 import { array, bool, object } from 'prop-types';
 import { v4 as uuid } from 'uuid';
 import Input from '../Inputs/Input';
-
+import './list.css'
 export default function FieldList({ fields, textToInputTypeDictionary, must }) {
   return (
-    <div>
+    <div className="field-list">
       {fields.map((field) => {
         return (
-          <span key={uuid()}>
+          <span className="field-list--item" key={uuid()}>
             <Input
               must={must}
               type={textToInputTypeDictionary[Object.values(field)[0]]}

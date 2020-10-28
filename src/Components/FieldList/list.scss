@@ -1,0 +1,10 @@
+.field-list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    .field-list--item{
+        margin:0.2rem;
+    }
+}

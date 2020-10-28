@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: '8rem',
-    minHeight: '8rem',
+    height: '5rem',
   },
   root: {
     '&:after': {

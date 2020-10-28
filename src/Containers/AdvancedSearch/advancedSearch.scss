@@ -1,16 +1,22 @@
 .fields--optional {
+    margin-top: 2rem;
 }
-.fields--must {
-    // display: flex;
-    // flex-wrap: nowrap;
-    // justify-content: space-between;
-    // span{
-    //     margin-top: 1rem;
-    // }
-}   
 
-.fields {
-    > div {
-        margin-top: 1rem;
+.advanced-search-container {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas: "select" "params" "footer";
+
+    .advanced-search-container__footer {
+        margin: auto;
+        grid-area: footer;
+    }
+    .advanced-search-container__params {
+        grid-area: params;
+    }
+    .advanced-search-container__select {
+        grid-area: select;
     }
 }

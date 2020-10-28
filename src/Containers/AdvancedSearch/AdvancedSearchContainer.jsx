@@ -1,10 +1,15 @@
 import { Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
+import Button from '../../Components/Buttons/Button';
 import Select from '../../Components/Select/Select';
 import config from '../../Config';
-import { selectEntityTypeLabel } from '../../Constants/labelConstants';
+import {
+  searchButtonLabel,
+  selectEntityTypeLabel,
+} from '../../Constants/labelConstants';
 import { fetchAllCategories } from '../../Services/Ontology/ontology.service';
 import AdvancedSearchParams from './AdvancedSearchParams';
+import './advancedSearch.css';
 
 export default function AdvancedSearchContainer() {
   const [selected, setSelected] = useState('');
@@ -26,21 +31,26 @@ export default function AdvancedSearchContainer() {
   }, []);
 
   return (
-    <Grid>
-      <div className="grid-container">
-        <div className="grid-container__select">
-          <Select
-            value={selected}
-            onChange={handleSelected}
-            label={selectEntityTypeLabel}
-            options={categories}
-            keysDictionary={config.OntologyToHtml.category}
-          ></Select>
-        </div>
-        <div>
-          <AdvancedSearchParams typeId={selected}></AdvancedSearchParams>
-        </div>
+    <div className="advanced-search-container">
+      <div className="advanced-search-container__select">
+        <Select
+          value={selected}
+          onChange={handleSelected}
+          label={selectEntityTypeLabel}
+          options={categories}
+          keysDictionary={config.OntologyToHtml.category}
+        ></Select>
       </div>
-    </Grid>
+      <div className="advanced-search-container__params">
+        <AdvancedSearchParams typeId={selected}></AdvancedSearchParams>
+      </div>
+      {selected ? (
+        <div className="advanced-search-container__footer">
+          <Button buttonText={searchButtonLabel}></Button>
+        </div>
+      ) : (
+        <div></div>
+      )}
+    </div>
   );
 }
