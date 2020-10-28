@@ -32,7 +32,7 @@ export default function AdvancedSearchContainer() {
 
   function onSubmit(event) {
     event.preventDefault();
-    history.push('/results/page/1');
+    history.push('/entities/page/1');
   }
 
   return (
