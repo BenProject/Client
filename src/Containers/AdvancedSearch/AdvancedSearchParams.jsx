@@ -3,7 +3,7 @@ import { string } from 'prop-types';
 import { fetchCategoryById } from '../../Services/Ontology/ontology.service';
 import config from '../../Config';
 import FieldList from '../../Components/FieldList/List';
-import './advancedSearch.css'
+import './advancedSearch.css';
 
 export default function AdvancedSearchParams({ typeId }) {
   const [params, setParams] = useState(undefined);

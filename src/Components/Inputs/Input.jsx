@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles, TextField } from '@material-ui/core';
-import { bool, string } from 'prop-types';
+import { bool, string, func } from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,11 +15,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Input({ type, label, must }) {
+export default function Input({ type, label, must, onChange }) {
   const classes = useStyles();
   if (type == 'date')
     return (
       <TextField
+        onChange={onChange}
         className={classes.root}
         type={type}
         required={must}
@@ -31,6 +32,7 @@ export default function Input({ type, label, must }) {
     );
   return (
     <TextField
+      onChange={onChange}
       className={classes.root}
       type={type}
       label={label}
@@ -45,4 +47,5 @@ Input.propTypes = {
   type: string.isRequired,
   label: string,
   must: bool,
+  onChange: func,
 };

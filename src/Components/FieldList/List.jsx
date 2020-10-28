@@ -2,7 +2,8 @@ import React from 'react';
 import { array, bool, object } from 'prop-types';
 import { v4 as uuid } from 'uuid';
 import Input from '../Inputs/Input';
-import './list.css'
+import './list.css';
+
 export default function FieldList({ fields, textToInputTypeDictionary, must }) {
   return (
     <div className="field-list">

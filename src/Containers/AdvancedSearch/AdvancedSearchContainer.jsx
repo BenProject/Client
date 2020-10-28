@@ -1,4 +1,3 @@
-import { Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import Button from '../../Components/Buttons/Button';
 import Select from '../../Components/Select/Select';
@@ -30,6 +29,10 @@ export default function AdvancedSearchContainer() {
       });
   }, []);
 
+  function handleClick(event) {
+    event.preventDefault();
+  }
+
   return (
     <div className="advanced-search-container">
       <div className="advanced-search-container__select">
@@ -41,16 +44,22 @@ export default function AdvancedSearchContainer() {
           keysDictionary={config.OntologyToHtml.category}
         ></Select>
       </div>
-      <div className="advanced-search-container__params">
-        <AdvancedSearchParams typeId={selected}></AdvancedSearchParams>
-      </div>
-      {selected ? (
-        <div className="advanced-search-container__footer">
-          <Button buttonText={searchButtonLabel}></Button>
+      <form>
+        <div className="advanced-search-container__params">
+          <AdvancedSearchParams typeId={selected}></AdvancedSearchParams>
         </div>
-      ) : (
-        <div></div>
-      )}
+        {selected ? (
+          <div className="advanced-search-container__footer">
+            <Button
+              onClick={handleClick}
+              type="submit"
+              buttonText={searchButtonLabel}
+            ></Button>
+          </div>
+        ) : (
+          <div></div>
+        )}
+      </form>
     </div>
   );
 }
