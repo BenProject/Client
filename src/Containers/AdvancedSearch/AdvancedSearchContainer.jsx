@@ -30,9 +30,9 @@ export default function AdvancedSearchContainer() {
       });
   }, []);
 
-  function handleClick(event) {
+  function onSubmit(event) {
     event.preventDefault();
-    history.push('/results/search');
+    history.push('/results/page/1');
   }
 
   return (
@@ -46,17 +46,16 @@ export default function AdvancedSearchContainer() {
           keysDictionary={config.OntologyToHtml.category}
         ></Select>
       </div>
-      <form className="advanced-search-container__form-container">
+      <form
+        onSubmit={onSubmit}
+        className="advanced-search-container__form-container"
+      >
         <div className="advanced-search-container__params">
           <AdvancedSearchParams typeId={selected}></AdvancedSearchParams>
         </div>
         {selected ? (
           <div className="advanced-search-container__footer">
-            <Button
-              onClick={handleClick}
-              type="submit"
-              buttonText={searchButtonLabel}
-            ></Button>
+            <Button type="submit" buttonText={searchButtonLabel}></Button>
           </div>
         ) : (
           <div></div>

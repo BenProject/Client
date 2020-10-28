@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Input({ type, label, must, onChange, name }) {
   const classes = useStyles();
-  if (type == 'date')
+  if (type === 'date')
     return (
       <TextField
         name={name}
