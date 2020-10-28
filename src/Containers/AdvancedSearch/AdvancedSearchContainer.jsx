@@ -44,22 +44,21 @@ export default function AdvancedSearchContainer() {
           keysDictionary={config.OntologyToHtml.category}
         ></Select>
       </div>
-      <form>
-        <div className="advanced-search-container__params">
-          <AdvancedSearchParams typeId={selected}></AdvancedSearchParams>
+
+      <div className="advanced-search-container__params">
+        <AdvancedSearchParams typeId={selected}></AdvancedSearchParams>
+      </div>
+      {/* {selected ? (
+        <div className="advanced-search-container__footer">
+          <Button
+            onClick={handleClick}
+            type="submit"
+            buttonText={searchButtonLabel}
+          ></Button>
         </div>
-        {selected ? (
-          <div className="advanced-search-container__footer">
-            <Button
-              onClick={handleClick}
-              type="submit"
-              buttonText={searchButtonLabel}
-            ></Button>
-          </div>
-        ) : (
-          <div></div>
-        )}
-      </form>
+      ) : (
+        <div></div>
+      )} */}
     </div>
   );
 }

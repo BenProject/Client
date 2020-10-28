@@ -15,11 +15,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Input({ type, label, must, onChange }) {
+export default function Input({ type, label, must, onChange, name }) {
   const classes = useStyles();
   if (type == 'date')
     return (
       <TextField
+        name={name}
         onChange={onChange}
         className={classes.root}
         type={type}
@@ -32,6 +33,7 @@ export default function Input({ type, label, must, onChange }) {
     );
   return (
     <TextField
+      name={name}
       onChange={onChange}
       className={classes.root}
       type={type}
@@ -48,4 +50,5 @@ Input.propTypes = {
   label: string,
   must: bool,
   onChange: func,
+  name: string,
 };

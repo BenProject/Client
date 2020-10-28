@@ -2,17 +2,31 @@
     margin-top: 2rem;
 }
 
+.params-container {
+    display: grid;
+    height: 100%;
+    grid-template-rows: 5fr 1fr;
+    grid-template-areas: "params" "submit";
+    .params__fields {
+        grid-area: params;
+    }
+    .params__submit {
+        margin: auto;
+        grid-area: submit;
+    }
+}
+
 .advanced-search-container {
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-rows: 1fr 2fr 1fr;
-    grid-template-areas: "select" "params" "footer";
+    grid-template-rows: 1fr 5fr;
+    grid-template-areas: "select" "params";
 
-    .advanced-search-container__footer {
-        margin: auto;
-        grid-area: footer;
-    }
+    // .advanced-search-container__footer {
+    //     margin: auto;
+    //     grid-area: footer;
+    // }
     .advanced-search-container__params {
         grid-area: params;
     }
