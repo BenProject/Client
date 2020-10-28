@@ -1,6 +1,16 @@
-.fields--optional{
-
+.fields--optional {
 }
-.fields--must{
-    
+.fields--must {
+    // display: flex;
+    // flex-wrap: nowrap;
+    // justify-content: space-between;
+    // span{
+    //     margin-top: 1rem;
+    // }
+}   
+
+.fields {
+    > div {
+        margin-top: 1rem;
+    }
 }
