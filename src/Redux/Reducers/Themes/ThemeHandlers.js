@@ -1,5 +1,5 @@
 export default {
-  toggleTheme: (state, action) => {
+  toggleTheme: (state) => {
     return state.update('isDarkTheme', (isDarkTheme) => !isDarkTheme);
   },
 };
