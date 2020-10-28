@@ -7,16 +7,21 @@ const useStyles = makeStyles((theme) => ({
     '& label.Mui-focused': {
       color: theme.palette.text.primary,
     },
-    '& .MuiInput-underline:after': {
-      borderBottomColor: 'blue',
+    '& .MuiOutlinedInput-root': {
+      '&.Mui-focused fieldset': {
+        borderColor: theme.palette.secondary.main,
+      },
+    },
+  },
+  dateInput: {
+    '& label': {
+      visibility: 'hidden',
+    },
+    '& label.Mui-focused': {
+      visibility: 'visible',
+      color: theme.palette.text.primary,
     },
     '& .MuiOutlinedInput-root': {
-      // '& fieldset': {
-      //   borderColor: 'blue',
-      // },
-      // '&:hover fieldset': {
-      //   borderColor: 'yellow',
-      // },
       '&.Mui-focused fieldset': {
         borderColor: theme.palette.secondary.main,
       },
@@ -26,6 +31,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Input({ type, label, must }) {
   const classes = useStyles();
+  if (type == 'date')
+    return (
+      <TextField
+        className={classes.dateInput}
+        type={type}
+        required={must}
+        label={label}
+        variant="outlined"
+        InputProps={{ className: classes.root }}
+      ></TextField>
+    );
   return (
     <TextField
       className={classes.root}

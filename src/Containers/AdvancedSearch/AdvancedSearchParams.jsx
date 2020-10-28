@@ -3,6 +3,8 @@ import { string } from 'prop-types';
 import { fetchCategoryById } from '../../Services/Ontology/ontology.service';
 import config from '../../Config';
 import FieldList from '../../Components/FieldList/List';
+import { Card } from '@material-ui/core';
+import './advancedSearch.css'
 
 export default function AdvancedSearchParams({ typeId }) {
   const [params, setParams] = useState(undefined);
@@ -19,7 +21,6 @@ export default function AdvancedSearchParams({ typeId }) {
   return (
     <div className="fields">
       <div className="fields--must">
-        <div className="fields--must__label">חובה:</div>
         <FieldList
           must={true}
           textToInputTypeDictionary={config.OntologyToHtml.entityTypeToInput}
@@ -27,7 +28,6 @@ export default function AdvancedSearchParams({ typeId }) {
         ></FieldList>
       </div>
       <div className="fields--optional">
-        <div className="fields--optional__label">אופציונאלי:</div>
         <FieldList
           must={false}
           textToInputTypeDictionary={config.OntologyToHtml.entityTypeToInput}

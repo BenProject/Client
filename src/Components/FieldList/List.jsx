@@ -8,12 +8,13 @@ export default function FieldList({ fields, textToInputTypeDictionary, must }) {
     <div>
       {fields.map((field) => {
         return (
-          <Input
-            must={must}
-            type={textToInputTypeDictionary[Object.values(field)[0]]}
-            label={Object.keys(field)[0]}
-            key={uuid()}
-          ></Input>
+          <span key={uuid()}>
+            <Input
+              must={must}
+              type={textToInputTypeDictionary[Object.values(field)[0]]}
+              label={Object.keys(field)[0]}
+            ></Input>
+          </span>
         );
       })}
     </div>
