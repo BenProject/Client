@@ -29,6 +29,7 @@
         grid-area: header;
     }
     .grid-container__body {
+        overflow-y: auto;
         grid-area: body;
     }
 }
