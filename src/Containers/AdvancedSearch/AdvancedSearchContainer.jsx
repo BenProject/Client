@@ -34,7 +34,7 @@ export default function AdvancedSearchContainer() {
             onChange={handleSelected}
             label={selectEntityTypeLabel}
             options={categories}
-            keysDictionary={config.ontologyToHtmlDictionary}
+            keysDictionary={config.OntologyToHtml.category}
           ></Select>
         </div>
         <div>

@@ -1,16 +1,27 @@
 import React from 'react';
-import { array } from 'prop-types';
-import uuid from 'uuid';
-export default function FieldList({ fields }) {
+import { array, bool, object } from 'prop-types';
+import { v4 as uuid } from 'uuid';
+import Input from '../Inputs/Input';
+
+export default function FieldList({ fields, textToInputTypeDictionary, must }) {
   return (
     <div>
       {fields.map((field) => {
-        return <div key={uuid.v4()}>{field}</div>;
+        return (
+          <Input
+            must={must}
+            type={textToInputTypeDictionary[Object.values(field)[0]]}
+            label={Object.keys(field)[0]}
+            key={uuid()}
+          ></Input>
+        );
       })}
     </div>
   );
 }
 
 FieldList.propTypes = {
-  fields: array.isRsequired,
+  fields: array.isRequired,
+  textToInputTypeDictionary: object.isRequired,
+  must: bool,
 };

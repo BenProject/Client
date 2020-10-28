@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { string } from 'prop-types';
 import { fetchCategoryById } from '../../Services/Ontology/ontology.service';
-import { v4 as uuid } from 'uuid';
-import Input from '../../Components/Inputs/Input';
+import config from '../../Config';
+import FieldList from '../../Components/FieldList/List';
 
 export default function AdvancedSearchParams({ typeId }) {
   const [params, setParams] = useState(undefined);
@@ -17,16 +17,23 @@ export default function AdvancedSearchParams({ typeId }) {
   if (!params || !typeId) return <div />;
 
   return (
-    <div>
-      {params.properties.must.map((param) => {
-        return (
-          <Input
-            key={uuid()}
-            label={Object.keys(param)[0]}
-            type={Object.values(param)[0]}
-          ></Input>
-        );
-      })}
+    <div className="fields">
+      <div className="fields--must">
+        <div className="fields--must__label">חובה:</div>
+        <FieldList
+          must={true}
+          textToInputTypeDictionary={config.OntologyToHtml.entityTypeToInput}
+          fields={params.properties.must}
+        ></FieldList>
+      </div>
+      <div className="fields--optional">
+        <div className="fields--optional__label">אופציונאלי:</div>
+        <FieldList
+          must={false}
+          textToInputTypeDictionary={config.OntologyToHtml.entityTypeToInput}
+          fields={params.properties.optional}
+        ></FieldList>
+      </div>
     </div>
   );
 }
