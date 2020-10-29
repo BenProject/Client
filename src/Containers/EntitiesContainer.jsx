@@ -18,10 +18,10 @@ export default function ResultsContainer() {
       .then((entities) => {
         entities.forEach((entity) => {
           entity.onClick = () => {
-            history.push(`/entity/${entity.id}`);
+            history.push(`/entity/${entity.id}/properties`);
           };
           entity.relations.forEach((relation) => {
-            relation.onClick = () => history.push(`/entity/${relation.id}`);
+            relation.onClick = () => history.push(`/entity/${relation.id}/properties`);
           });
         });
         setEntities(entities);

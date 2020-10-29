@@ -7,6 +7,7 @@ import { Route } from 'react-router-dom';
 import Page from './Page/Page';
 import AdvancedSearchContainer from '../Containers/AdvancedSearch/AdvancedSearchContainer';
 import EntitiesContainer from '../Containers/EntitiesContainer';
+import InspedEntityContainer from '../Containers/InspecEntityContainer';
 
 const App = () => {
   const [theme, toggleTheme] = useTheme();
@@ -27,6 +28,9 @@ const App = () => {
               </Route>
               <Route path="/entities/page/:pageNumber">
                 <EntitiesContainer></EntitiesContainer>
+              </Route>
+              <Route path="/entity/:entityId/:inspectStatus">
+                <InspedEntityContainer />
               </Route>
             </div>
           </div>
