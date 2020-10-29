@@ -10,10 +10,6 @@ import {
 import { array, func, string } from 'prop-types';
 import { getKeyAndValOfObject } from '../../Utils/ObjectUtils';
 import { v4 as uuid } from 'uuid';
-import {
-  entityPropertiesLabel,
-  entityRelationsLabel,
-} from '../../Constants/labelConstants';
 import IconButton from '../Buttons/IconButton';
 import { Search } from '@material-ui/icons';
 import config from '../../Config';

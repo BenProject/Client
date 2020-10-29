@@ -20,7 +20,7 @@ export default function TopBarContainer({ toggleTheme }) {
           alt="mini-kick"
           id="kick-logo"
           key="3"
-          src="kick_without_colors.svg"
+          src="/images/kick_without_colors.svg"
         ></img>,
         <ThemeToggeler
           isDarkTheme={darkState}

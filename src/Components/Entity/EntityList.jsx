@@ -3,7 +3,6 @@ import Entity from './Entity';
 import { v4 as uuid } from 'uuid';
 import { array } from 'prop-types';
 import './Entity.css';
-import config from '../../Config';
 
 export default function EntityList({ entities }) {
   if (!entities) return <div />;
