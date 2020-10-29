@@ -3,10 +3,11 @@ import { IconButton as StyledButton } from '@material-ui/core';
 import { func, object, string } from 'prop-types';
 import { Link } from 'react-router-dom';
 
-export default function IconButton({ icon, onClick, href, type }) {
+export default function IconButton({ icon, onClick, href, type, buttonText }) {
   if (href) {
     return (
       <Link to={href}>
+        {buttonText}
         <StyledButton type={type} onClick={onClick}>
           {icon}
         </StyledButton>
@@ -14,9 +15,12 @@ export default function IconButton({ icon, onClick, href, type }) {
     );
   }
   return (
-    <StyledButton type={type} onClick={onClick}>
-      {icon}
-    </StyledButton>
+    <div>
+      {buttonText}
+      <StyledButton type={type} onClick={onClick}>
+        {icon}
+      </StyledButton>
+    </div>
   );
 }
 
@@ -25,4 +29,5 @@ IconButton.propTypes = {
   type: string,
   onClick: func,
   href: string,
+  buttonText: string,
 };
