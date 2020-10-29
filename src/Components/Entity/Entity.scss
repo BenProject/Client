@@ -1,0 +1,7 @@
+.entity-list {
+    display: flex;
+    flex-wrap: wrap;
+    .entity-list__item {
+        flex: 1 0 30%; /* explanation below */
+    }
+}
