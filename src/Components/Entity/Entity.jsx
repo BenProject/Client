@@ -3,6 +3,7 @@ import {
   Card,
   CardContent,
   CardHeader,
+  Divider,
   makeStyles,
   Typography,
 } from '@material-ui/core';
@@ -43,9 +44,9 @@ export default function Entity({ onClick, entityType, properties, relations }) {
         title={entityType}
       ></CardHeader>
       <CardContent>
-        <Typography variant="h6">
+        {/* <Typography variant="h6">
           <div className="text-align-center">{entityPropertiesLabel}</div>
-        </Typography>
+        </Typography> */}
         <Typography>
           {properties
             .slice(0, config.numberOfFieldsToSHow + 1)
@@ -63,9 +64,10 @@ export default function Entity({ onClick, entityType, properties, relations }) {
             })}
         </Typography>
       </CardContent>
+      <Divider variant="middle" />
       <CardContent>
         <Typography variant="button">
-          <div className="text-align-center">{entityRelationsLabel}</div>
+          {/* <div className="text-align-center">{entityRelationsLabel}</div> */}
           {relations
             .slice(0, config.numberOfFieldsToSHow + 1)
             .map((relation, index) => {
