@@ -43,12 +43,12 @@ export default function Entity({ onClick, entityType, properties, relations }) {
         {/* <Typography variant="h6">
           <div className="text-align-center">{entityPropertiesLabel}</div>
         </Typography> */}
-        <Typography>
+        <Typography component={'span'}>
           {properties
             .slice(0, config.numberOfFieldsToSHow + 1)
             .map((prop, index) => {
               if (index >= config.numberOfFieldsToSHow) {
-                return <div>...</div>;
+                return <div key={uuid()}>...</div>;
               }
 
               let [key, value] = getKeyAndValOfObject(prop);
@@ -62,13 +62,13 @@ export default function Entity({ onClick, entityType, properties, relations }) {
       </CardContent>
       <Divider variant="middle" />
       <CardContent>
-        <Typography variant="button">
+        <Typography component={'span'} variant="button">
           {/* <div className="text-align-center">{entityRelationsLabel}</div> */}
           {relations
             .slice(0, config.numberOfFieldsToSHow + 1)
             .map((relation, index) => {
               if (index >= config.numberOfFieldsToSHow) {
-                return <div>...</div>;
+                return <div key={uuid()}>...</div>;
               }
               return (
                 <div className="relation-button" key={uuid()}>
