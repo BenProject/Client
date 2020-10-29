@@ -12,6 +12,7 @@ export default function FieldList({ fields, must }) {
         return (
           <span className="field-list--item" key={uuid()}>
             <Input
+              key={uuid()}
               onChange={field.onChange}
               name={field.name}
               must={must}

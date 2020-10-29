@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardActionArea,
-  CardActions,
-  CardHeader,
-  makeStyles,
-} from '@material-ui/core';
+import { Card, CardActions, CardHeader, makeStyles } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import IconButton from '../../Components/Buttons/IconButton';
@@ -59,7 +53,6 @@ export default function InspedEntityContainer() {
           onClick={() => history.push(`./relations`)}
         ></IconButton>
       </CardActions>
-      {/* <CardHeader /> */}
 
       {/* <IconButton></IconButton>
         <IconButton></IconButton> */}

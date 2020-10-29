@@ -8,20 +8,20 @@ export default function ResultsContainer() {
   const [entities, setEntities] = useState([]);
   const { pageNumber } = useParams();
   const history = useHistory();
-
   const params = useSelector((state) =>
     state.getIn(['AdvancedSearch', 'params'])
   );
 
   useEffect(() => {
-    fetchEntitiesByParams(params, pageNumber)
+    fetchEntitiesByParams(params.toJS(), pageNumber)
       .then((entities) => {
         entities.forEach((entity) => {
           entity.onClick = () => {
             history.push(`/entity/${entity.id}/properties`);
           };
           entity.relations.forEach((relation) => {
-            relation.onClick = () => history.push(`/entity/${relation.id}/properties`);
+            relation.onClick = () =>
+              history.push(`/entity/${relation.id}/properties`);
           });
         });
         setEntities(entities);
