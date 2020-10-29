@@ -1,4 +1,9 @@
 import React from 'react';
-export default function PropertiesContainer() {
+import { string } from 'prop-types';
+
+export default function PropertiesContainer({ entityId }) {
   return <div>properties </div>;
 }
+PropertiesContainer.propTypes = {
+  entityId: string.isRequired,
+};
