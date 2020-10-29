@@ -8,12 +8,12 @@
     height: 60px;
     width: 200px;
     flex: 0 0 80%;
+    &:hover{
+        cursor: pointer;
+    }
 }
 
-#test {
-    text-align: center;
-    flex: 0 0 80%;
-}
+
 .no-text-decoration {
     text-decoration: none;
 }

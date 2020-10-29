@@ -17,9 +17,9 @@ export function fetchEntitiesByParams(params, pageNumber) {
   );
 }
 
-export function fetchEntityDetailsById(id) {
+export function fetchEntityPropertiesById(id) {
   return axios
-    .get(`${config.serverUrl}/entitiy/${id}`)
+    .get(`${config.serverUrl}/entity/${id}/properties`)
     .then((res) => {
       return res.data;
     })

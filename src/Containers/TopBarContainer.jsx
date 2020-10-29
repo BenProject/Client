@@ -5,8 +5,10 @@ import { Add, Home } from '@material-ui/icons';
 import IconButton from '../Components/Buttons/IconButton';
 import ThemeToggeler from '../Components/Themes/ThemeToggler';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 export default function TopBarContainer({ toggleTheme }) {
+  const history = useHistory();
   const darkState = useSelector((state) =>
     state.getIn(['Themes', 'isDarkTheme'])
   );
@@ -21,6 +23,7 @@ export default function TopBarContainer({ toggleTheme }) {
           id="kick-logo"
           key="3"
           src="/images/kick_without_colors.svg"
+          onClick={() => history.push('/')}
         ></img>,
         <ThemeToggeler
           isDarkTheme={darkState}
