@@ -12,6 +12,9 @@ import {
 } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
+  card: {
+    height: '95%',
+  },
   cardActions: {
     backgroundColor: theme.palette.primary.main,
     display: 'flex',
@@ -38,7 +41,7 @@ export default function InspedEntityContainer() {
   }, [entityId, inspectStatus]);
 
   return (
-    <Card>
+    <Card className={classes.card}>
       <CardActions className={classes.cardActions}>
         <IconButton
           icon={<InfoOutlined />}

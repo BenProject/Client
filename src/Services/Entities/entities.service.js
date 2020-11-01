@@ -40,3 +40,10 @@ export function fetchEntityPropertiesById(id) {
     })
     .catch((err) => Promise.reject(err.response.data.message));
 }
+
+export function fetchEntityRelationsById(id, hops) {
+  return axios
+    .get(`${config.serverUrl}/entity/${id}/relations?hops=${hops}`)
+    .then((res) => res.data)
+    .catch((err) => Promise.reject(err.response.data.message));
+}
