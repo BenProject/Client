@@ -17,11 +17,11 @@ const App = () => {
     <div className="app-header">
       <ThemeProvider theme={theme}>
         <Page>
-          <div className="grid-container">
-            <div className="grid-container__header">
-              <TopBarContainer toggleTheme={toggleTheme}></TopBarContainer>
-            </div>
-            <PerfectScrollbar>
+          <PerfectScrollbar>
+            <div className="grid-container">
+              <div className="grid-container__header">
+                <TopBarContainer toggleTheme={toggleTheme}></TopBarContainer>
+              </div>
               <div className="grid-container__body">
                 <Switch>
                   <Route exact path="/">
@@ -38,8 +38,8 @@ const App = () => {
                   </Route>
                 </Switch>
               </div>
-            </PerfectScrollbar>
-          </div>
+            </div>
+          </PerfectScrollbar>
         </Page>
       </ThemeProvider>
     </div>

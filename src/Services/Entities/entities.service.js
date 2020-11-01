@@ -17,6 +17,21 @@ export function fetchEntitiesByParams(params, pageNumber) {
   );
 }
 
+export function fetchEntityInsightsById(id) {
+  return axios
+    .get(`${config.serverUrl}/entity/${id}/insights`)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => Promise.reject(err.response.data.message));
+}
+
+export function saveInsights(id, message) {
+  return axios
+    .post(`${config.serverUrl}/entity/${id}/insights`, { insights: message })
+    .then((res) => res.data)
+    .catch((err) => Promise.reject(err.response.data.message));
+}
 export function fetchEntityPropertiesById(id) {
   return axios
     .get(`${config.serverUrl}/entity/${id}/properties`)

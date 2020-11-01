@@ -27,7 +27,7 @@ export default function ResultsContainer() {
         setEntities(entities);
       })
       .catch((err) => console.log(err));
-  }, [pageNumber]);
+  }, [pageNumber, params, history]);
 
   return (
     <div>
