@@ -57,11 +57,11 @@ export default function InsightsContainer({ entityId }) {
   return (
     <div className={classes.root}>
       <div className={classes.editor}>
-          <Editor
-            options={options}
-            editorState={insights}
-            onEditorStateChange={setInsights}
-          ></Editor>
+        <Editor
+          options={options}
+          editorState={insights}
+          onEditorStateChange={setInsights}
+        ></Editor>
       </div>
       <div className={classes.footer}>
         <Button onClick={onSave} buttonText={'save'}></Button>

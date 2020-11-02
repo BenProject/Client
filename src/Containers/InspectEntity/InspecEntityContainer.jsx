@@ -14,6 +14,7 @@ import {
 const useStyles = makeStyles((theme) => ({
   card: {
     height: '95%',
+    paddingBottom: '6%',
   },
   cardActions: {
     backgroundColor: theme.palette.primary.main,
@@ -59,7 +60,7 @@ export default function InspedEntityContainer() {
 
       {/* <IconButton></IconButton>
         <IconButton></IconButton> */}
-      {currentTab}
+      <div style={{ height: '100%' }}>{currentTab}</div>
     </Card>
   );
 }

@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 export default function RelationsContainer({ entityId }) {
   const classes = useStyles();
   const [relations, setRelations] = useState({ nodes: [], edges: [] });
@@ -50,6 +49,7 @@ export default function RelationsContainer({ entityId }) {
             onChange={(event, newVal) => setHopsNumber(newVal)}
             className={classes.slider}
             max={config.maxNumberOfHopsAllowed}
+            min={1}
           />
         </Grid>
       </Grid>

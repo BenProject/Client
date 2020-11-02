@@ -28,26 +28,33 @@ export default function Entity({
   properties,
   relations,
   maxFieldsToShow,
+  elevation,
 }) {
   const classes = useStyles();
   const [isRaised, setRaised] = useState(false);
-
   if (!properties) return <div />;
   return (
     <Card
+      elevation={elevation}
       raised={isRaised}
       onMouseEnter={() => setRaised(!isRaised)}
       onMouseLeave={() => setRaised(!isRaised)}
       className={classes.root}
     >
       <CardHeader
-        action={<IconButton icon={<Search />} onClick={onClick} />}
+        action={
+          onClick ? (
+            <IconButton icon={<Search />} onClick={onClick} />
+          ) : (
+            <div></div>
+          )
+        }
         title={entityType}
       ></CardHeader>
       <CardContent>
         <Typography component={'span'}>
           {maxFieldsToShow
-            ? properties.slice(0, maxFieldsToShow + 1).map((prop, index) => {
+            ? properties?.slice(0, maxFieldsToShow + 1).map((prop, index) => {
                 if (index >= maxFieldsToShow) {
                   return <div>...</div>;
                 }
@@ -58,7 +65,7 @@ export default function Entity({
                   </div>
                 );
               })
-            : properties.map((prop, index) => {
+            : properties?.map((prop, index) => {
                 let [key, value] = getKeyAndValOfObject(prop);
                 return (
                   <div key={uuid()}>
@@ -72,21 +79,23 @@ export default function Entity({
       <CardContent>
         <Typography component={'span'} variant="button">
           {maxFieldsToShow
-            ? relations.slice(0, maxFieldsToShow + 1).map((relation, index) => {
-                if (index >= maxFieldsToShow) {
-                  return <div>...</div>;
-                }
-                return (
-                  <div className="relation-button" key={uuid()}>
-                    <IconButton
-                      onClick={relation.onClick}
-                      buttonText={`${relation.type}: ${relation.relationType}`}
-                      icon={<Search />}
-                    ></IconButton>
-                  </div>
-                );
-              })
-            : relations.map((relation, index) => {
+            ? relations
+                ?.slice(0, maxFieldsToShow + 1)
+                .map((relation, index) => {
+                  if (index >= maxFieldsToShow) {
+                    return <div>...</div>;
+                  }
+                  return (
+                    <div className="relation-button" key={uuid()}>
+                      <IconButton
+                        onClick={relation.onClick}
+                        buttonText={`${relation.type}: ${relation.relationType}`}
+                        icon={<Search />}
+                      ></IconButton>
+                    </div>
+                  );
+                })
+            : relations?.map((relation, index) => {
                 return (
                   <div className="relation-button" key={uuid()}>
                     <IconButton
@@ -109,4 +118,5 @@ Entity.propTypes = {
   relations: array,
   onClick: func,
   maxFieldsToShow: number,
+  elevation: number,
 };
