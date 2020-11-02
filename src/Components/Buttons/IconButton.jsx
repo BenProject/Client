@@ -9,7 +9,7 @@ export default function IconButton({
   href,
   type,
   buttonText,
-  tooltip,
+  tooltip = '',
 }) {
   if (href) {
     return (
