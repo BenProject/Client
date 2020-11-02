@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { string } from 'prop-types';
 import Graph from 'react-graph-vis';
 import { fetchEntityRelationsById } from '../../../Services/Entities/entities.service';
+import { Grid, makeStyles, Slider } from '@material-ui/core';
+import config from '../../../Config';
 
 const options = {
   layout: {
@@ -9,17 +11,21 @@ const options = {
   },
 };
 
-const events = {
-  select: function (event) {
-    var { nodes, edges } = event;
-    console.log('Selected nodes:');
-    console.log(nodes);
-    console.log('Selected edges:');
-    console.log(edges);
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: '100%',
   },
-};
+  slider: {
+    color: theme.palette.text.primary,
+    '& .MuiSlider-valueLabel': {
+      color: theme.palette.secondary.light,
+    },
+  },
+}));
+
 
 export default function RelationsContainer({ entityId }) {
+  const classes = useStyles();
   const [relations, setRelations] = useState({ nodes: [], edges: [] });
   const [hopsNumber, setHopsNumber] = useState(1);
 
@@ -34,7 +40,23 @@ export default function RelationsContainer({ entityId }) {
       .catch((err) => console.log(err));
   }, [entityId, hopsNumber]);
 
-  return <Graph graph={relations} options={options} events={events} />;
+  return (
+    <div className={classes.root}>
+      <Grid container justify="center">
+        <Grid item xs={8}>
+          <Slider
+            valueLabelDisplay="on"
+            value={hopsNumber}
+            onChange={(event, newVal) => setHopsNumber(newVal)}
+            className={classes.slider}
+            max={config.maxNumberOfHopsAllowed}
+          />
+        </Grid>
+      </Grid>
+
+      <Graph graph={relations} options={options} />
+    </div>
+  );
 }
 RelationsContainer.propTypes = {
   entityId: string.isRequired,

@@ -9,8 +9,29 @@ import { convertFromRaw, convertToRaw, EditorState } from 'draft-js';
 import he from 'he';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import Button from '../../../Components/Buttons/Button';
+import { makeStyles } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: '100%',
+    display: 'flex',
+  },
+  editor: {},
+
+  footer: {},
+}));
+
+const options = {
+  layout: {
+    hierarchical: false,
+  },
+  interaction: {
+    zoomView: false,
+  },
+};
 
 export default function InsightsContainer({ entityId }) {
+  const classes = useStyles();
   const [insights, setInsights] = useState(EditorState.createEmpty());
 
   useEffect(() => {
@@ -34,9 +55,17 @@ export default function InsightsContainer({ entityId }) {
   };
 
   return (
-    <div>
-      <Editor editorState={insights} onEditorStateChange={setInsights}></Editor>
-      <Button onClick={onSave} buttonText={'save'}></Button>
+    <div className={classes.root}>
+      <div className={classes.editor}>
+          <Editor
+            options={options}
+            editorState={insights}
+            onEditorStateChange={setInsights}
+          ></Editor>
+      </div>
+      <div className={classes.footer}>
+        <Button onClick={onSave} buttonText={'save'}></Button>
+      </div>
     </div>
   );
 }

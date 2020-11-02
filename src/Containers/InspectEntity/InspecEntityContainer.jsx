@@ -1,4 +1,4 @@
-import { Card, CardActions, CardHeader, makeStyles } from '@material-ui/core';
+import { Card, CardActions, makeStyles } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import IconButton from '../../Components/Buttons/IconButton';

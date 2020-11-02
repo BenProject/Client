@@ -7,39 +7,41 @@
 #kick-logo {
     height: 60px;
     width: 200px;
-    flex: 0 0 80%;
-    &:hover{
+    flex-grow: 2;
+    &:hover {
         cursor: pointer;
     }
 }
-
 
 .no-text-decoration {
     text-decoration: none;
 }
 
-.text-align-center{
+.text-align-center {
     text-align: center;
 }
 
 .grid-container {
+    overflow-y: auto;
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-rows: 1fr 6fr;
+    grid-template-rows: minmax(0, 1fr) minmax(0, 6fr);
     grid-template-areas: "header" "body";
     .grid-container__header {
+        min-width: 100%;
         grid-area: header;
     }
     .grid-container__body {
-        overflow-y: auto;
+        min-width: 100%;
+
         grid-area: body;
     }
 }
 
 body {
     position: flex;
-    margin: auto;
+    margin: 0;
     overflow: hidden;
     direction: rtl;
     font-size: calc(10px + 2vmin);
@@ -48,4 +50,22 @@ body {
 .app-header {
     height: 100vh;
     width: 100vw;
+}
+.rdw-editor-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    // grid-template-areas: "toolbar" "main";
+    // grid-template-rows: 2fr 5fr;
+    .rdw-editor-toolbar {
+        z-index: 100;
+        position: sticky;
+        top: 0;
+    }
+    .rdw-editor-main {
+        z-index: 0;
+        flex-grow: 5;
+        margin: 0;
+        // overflow-y: hidden;
+    }
 }
