@@ -15,7 +15,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Input({ type, label, must, onChange, name }) {
+export default function Input({
+  type,
+  label,
+  must,
+  onChange,
+  name,
+  defaultValue,
+}) {
   const classes = useStyles();
   if (type === 'date')
     return (
@@ -29,10 +36,12 @@ export default function Input({ type, label, must, onChange, name }) {
         InputLabelProps={{ shrink: true }}
         variant="outlined"
         InputProps={{ className: classes.root }}
+        defaultValue={defaultValue}
       ></TextField>
     );
   return (
     <TextField
+      defaultValue={defaultValue}
       name={name}
       onChange={onChange}
       className={classes.root}

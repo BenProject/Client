@@ -47,3 +47,13 @@ export function fetchEntityRelationsById(id, hops) {
     .then((res) => res.data)
     .catch((err) => Promise.reject(err.response.data.message));
 }
+
+export function editEntityFieldById(id, key, value) {
+  return axios
+    .post(`${config.serverUrl}/entity/${id}/properties`, {
+      key: key,
+      value: value,
+    })
+    .then((res) => res.data)
+    .catch((err) => Promise.reject(err.response.data.message));
+}

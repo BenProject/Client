@@ -11,7 +11,7 @@ import { array, func, number, string } from 'prop-types';
 import { getKeyAndValOfObject } from '../../Utils/ObjectUtils';
 import { v4 as uuid } from 'uuid';
 import IconButton from '../Buttons/IconButton';
-import { Search } from '@material-ui/icons';
+import { Edit, Search } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,6 +61,11 @@ export default function Entity({
                 let [key, value] = getKeyAndValOfObject(prop);
                 return (
                   <div key={uuid()}>
+                    {prop.onClick ? (
+                      <IconButton icon={<Edit />} onClick={prop.onClick} />
+                    ) : (
+                      <div />
+                    )}
                     {key}: {value}
                   </div>
                 );
@@ -69,7 +74,17 @@ export default function Entity({
                 let [key, value] = getKeyAndValOfObject(prop);
                 return (
                   <div key={uuid()}>
-                    {key}: {value}
+                    {prop.onClick ? (
+                      <IconButton
+                        buttonText={`${key}: ${value}`}
+                        icon={<Edit />}
+                        onClick={() => prop.onClick(prop)}
+                      />
+                    ) : (
+                      <div>
+                        {key}: {value}
+                      </div>
+                    )}
                   </div>
                 );
               })}
