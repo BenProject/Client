@@ -55,8 +55,6 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    // grid-template-areas: "toolbar" "main";
-    // grid-template-rows: 2fr 5fr;
     .rdw-editor-toolbar {
         z-index: 100;
         position: sticky;
@@ -66,6 +64,5 @@ body {
         z-index: 0;
         flex-grow: 5;
         margin: 0;
-        // overflow-y: hidden;
     }
 }

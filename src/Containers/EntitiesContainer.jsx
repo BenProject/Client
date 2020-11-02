@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import EntityList from '../Components/Entity/EntityList';
+import config from '../Config';
 import { fetchEntitiesByParams } from '../Services/Entities/entities.service';
 
 export default function ResultsContainer() {
@@ -31,7 +32,10 @@ export default function ResultsContainer() {
 
   return (
     <div>
-      <EntityList entities={entities}></EntityList>
+      <EntityList
+        maxFieldsToShowPerEntity={config.numberOfFieldsToSHow}
+        entities={entities}
+      ></EntityList>
     </div>
   );
 }

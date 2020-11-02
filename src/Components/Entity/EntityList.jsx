@@ -1,10 +1,10 @@
 import React from 'react';
 import Entity from './Entity';
 import { v4 as uuid } from 'uuid';
-import { array } from 'prop-types';
+import { array, number } from 'prop-types';
 import './Entity.css';
 
-export default function EntityList({ entities }) {
+export default function EntityList({ entities, maxFieldsToShowPerEntity }) {
   if (!entities) return <div />;
 
   return (
@@ -13,6 +13,7 @@ export default function EntityList({ entities }) {
         return (
           <div key={uuid()} className={'entity-list__item'}>
             <Entity
+              maxFieldsToShow={maxFieldsToShowPerEntity}
               onClick={entity.onClick}
               entityType={entity.type}
               properties={entity.properties}
@@ -26,4 +27,5 @@ export default function EntityList({ entities }) {
 }
 EntityList.propTypes = {
   entities: array.isRequired,
+  maxFieldsToShowPerEntity: number,
 };

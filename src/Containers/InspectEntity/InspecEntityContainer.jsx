@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import IconButton from '../../Components/Buttons/IconButton';
 import InsightsContainer from './Tabs/InsightsContainer';
-import PropertiesContainer from './Tabs/PropertiesContainer';
+import DetailsContainer from './Tabs/DetailsContainer';
 import RelationsContainer from './Tabs/RelationsContainer';
 import {
   InfoOutlined,
@@ -34,7 +34,7 @@ export default function InspedEntityContainer() {
     if (inspectStatus === 'relations')
       setTab(<RelationsContainer entityId={entityId} />);
     else if (inspectStatus === 'properties')
-      setTab(<PropertiesContainer entityId={entityId} />);
+      setTab(<DetailsContainer entityId={entityId} />);
     else if (inspectStatus === 'insights')
       setTab(<InsightsContainer entityId={entityId} />);
     else return <div></div>;

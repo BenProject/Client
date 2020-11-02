@@ -32,7 +32,7 @@ export function saveInsights(id, message) {
     .then((res) => res.data)
     .catch((err) => Promise.reject(err.response.data.message));
 }
-export function fetchEntityPropertiesById(id) {
+export function fetchEntityDetailsById(id) {
   return axios
     .get(`${config.serverUrl}/entity/${id}/properties`)
     .then((res) => {
