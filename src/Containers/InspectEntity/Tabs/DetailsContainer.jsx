@@ -3,8 +3,21 @@ import { string } from 'prop-types';
 import { fetchEntityDetailsById } from '../../../Services/Entities/entities.service';
 import Entity from '../../../Components/Entity/Entity';
 import { useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core';
+import IconButton from '../../../Components/Buttons/IconButton';
+import { Add } from '@material-ui/icons';
 
+const useStyles = makeStyles((theme) => ({
+  entityContainer: {
+    height: '100%',
+    overflowY: 'auto',
+  },
+  toolTip: {
+    color: 'yellow',
+  },
+}));
 export default function DetailsContainer({ entityId }) {
+  const classes = useStyles();
   const history = useHistory();
 
   const [details, setDetails] = useState({
@@ -31,7 +44,10 @@ export default function DetailsContainer({ entityId }) {
       });
   }, [entityId]);
   return (
-    <div style={{ height: '100%', overflowY: 'auto' }}>
+    <div className={classes.entityContainer}>
+      <div style={{ float: 'left' }}>
+        <IconButton tooltip="add to relation maker" icon={<Add />}></IconButton>
+      </div>
       <Entity
         elevation={0}
         properties={details.properties}
