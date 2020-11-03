@@ -70,7 +70,7 @@ export default function Entity({
                   </div>
                 );
               })
-            : properties?.map((prop, index) => {
+            : properties?.map((prop) => {
                 let [key, value] = getKeyAndValOfObject(prop);
                 return (
                   <div key={uuid()}>
@@ -110,7 +110,7 @@ export default function Entity({
                     </div>
                   );
                 })
-            : relations?.map((relation, index) => {
+            : relations?.map((relation) => {
                 return (
                   <div className="relation-button" key={uuid()}>
                     <IconButton

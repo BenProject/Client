@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, TextField } from '@material-ui/core';
-import { bool, string, func } from 'prop-types';
+import { bool, string, func, number, oneOfType } from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,4 +60,5 @@ Input.propTypes = {
   must: bool,
   onChange: func,
   name: string,
+  defaultValue: oneOfType([string, number]),
 };

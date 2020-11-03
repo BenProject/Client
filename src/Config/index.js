@@ -4,6 +4,7 @@ config.numberOfFieldsToSHow = 3;
 config.OntologyToHtml = {
   category: { key: 'id', value: 'type' },
   entityTypeToInput: { number: 'number', text: 'text', date: 'date' },
+  jsTypeToInput: { number: 'number', text: 'text', date: 'date' },
 };
 config.maxNumberOfHopsAllowed = 10;
 

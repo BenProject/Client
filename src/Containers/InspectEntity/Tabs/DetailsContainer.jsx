@@ -12,6 +12,7 @@ import { Add } from '@material-ui/icons';
 import { getKeyAndValOfObject } from '../../../Utils/ObjectUtils';
 import Input from '../../../Components/Inputs/Input';
 import Button from '../../../Components/Buttons/Button';
+import config from '../../../Config';
 
 const useStyles = makeStyles((theme) => ({
   entityContainer: {
@@ -72,9 +73,14 @@ export default function DetailsContainer({ entityId }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    editEntityFieldById(entityId, editDetail.key, editDetail.value)
+    editEntityFieldById(
+      entityId,
+      editDetail.key,
+      event.target.editDetailInput.value
+    )
       .then((res) => console.log('success ', res))
       .catch((err) => console.log('err ', err));
+
     setOpen(false);
   }
 
@@ -99,11 +105,9 @@ export default function DetailsContainer({ entityId }) {
         <div className={classes.modalContent}>
           <form className={classes.formContainer} onSubmit={handleSubmit}>
             <Input
-              onChange={(event) =>
-                setEditDetail({
-                  key: editDetail.key,
-                  value: event.target.value,
-                })
+              name="editDetailInput"
+              type={
+                config.OntologyToHtml.jsTypeToInput[typeof editDetail.value]
               }
               defaultValue={editDetail.value}
               label={editDetail.key}

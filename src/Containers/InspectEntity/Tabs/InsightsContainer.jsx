@@ -11,7 +11,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import Button from '../../../Components/Buttons/Button';
 import { makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     height: '100%',
     display: 'flex',
