@@ -2,12 +2,13 @@
 import axios from 'axios';
 import config from '../../Config';
 
-export function fetchEntitiesByParams(params, pageNumber) {
+export function fetchEntitiesByParams(params, pageNumber, entitiesPerPage) {
   return (
     axios
       .post(`${config.serverUrl}/entities/search`, {
         ...params,
         pageNumber: pageNumber,
+        entitiesPerPage: entitiesPerPage,
       })
       .then((res) => {
         return res.data;
@@ -20,12 +21,12 @@ export function fetchEntitiesByParams(params, pageNumber) {
 export function fetchNumberOfPagesByParams(params, entitiesPerPage) {
   return (
     axios
-      .post(`${config.serverUrl}/entities/pages`, {
+      .post(`${config.serverUrl}/entities/pageCount`, {
         ...params,
         entitiesPerPage: entitiesPerPage,
       })
       .then((res) => {
-        return res.data;
+        return res.data.pageCount;
       })
       // eslint-disable-next-line no-undef
       .catch((err) => Promise.reject(err.response.data.message))

@@ -11,5 +11,6 @@ config.OntologyToHtml = {
   jsTypeToInput: { number: 'number', text: 'text', date: 'date' },
 };
 config.maxNumberOfHopsAllowed = 10;
+config.entitiesPerPage = 9;
 
 export default config;

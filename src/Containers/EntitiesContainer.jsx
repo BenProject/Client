@@ -5,7 +5,10 @@ import { useHistory } from 'react-router-dom';
 import EntityList from '../Components/Entity/EntityList';
 import Pagination from '../Components/Pagination/Pagination';
 import config from '../Config';
-import { fetchEntitiesByParams } from '../Services/Entities/entities.service';
+import {
+  fetchEntitiesByParams,
+  fetchNumberOfPagesByParams,
+} from '../Services/Entities/entities.service';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,6 +24,7 @@ export default function ResultsContainer() {
   const classes = useStyles();
   const [entities, setEntities] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
+  const [pageCount, setPageCount] = useState(1);
 
   const history = useHistory();
   const params = useSelector((state) =>
@@ -28,7 +32,7 @@ export default function ResultsContainer() {
   );
 
   useEffect(() => {
-    fetchEntitiesByParams(params.toJS(), pageNumber)
+    fetchEntitiesByParams(params.toJS(), pageNumber, config.entitiesPerPage)
       .then((entities) => {
         entities.forEach((entity) => {
           entity.onClick = () => {
@@ -44,6 +48,12 @@ export default function ResultsContainer() {
       .catch((err) => console.log(err));
   }, [pageNumber, params, history]);
 
+  useEffect(() => {
+    fetchNumberOfPagesByParams(params.toJS(), config.entitiesPerPage)
+      .then((pageCount) => setPageCount(pageCount))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div className={classes.root}>
       <div>
@@ -54,7 +64,7 @@ export default function ResultsContainer() {
       </div>
       <div>
         <Pagination
-          pagesNumber={10}
+          pagesNumber={pageCount}
           onChange={(event, value) => setPageNumber(value)}
         ></Pagination>
       </div>
