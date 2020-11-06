@@ -27,7 +27,7 @@ const App = () => {
                 <Route exact path="/advanced-search">
                   <AdvancedSearchContainer />
                 </Route>
-                <Route path="/entities/page/:pageNumber">
+                <Route path="/entities/results">
                   <EntitiesContainer></EntitiesContainer>
                 </Route>
                 <Route path="/entity/:entityId/:inspectStatus">

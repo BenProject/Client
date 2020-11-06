@@ -17,6 +17,21 @@ export function fetchEntitiesByParams(params, pageNumber) {
   );
 }
 
+export function fetchNumberOfPagesByParams(params, entitiesPerPage) {
+  return (
+    axios
+      .post(`${config.serverUrl}/entities/pages`, {
+        ...params,
+        entitiesPerPage: entitiesPerPage,
+      })
+      .then((res) => {
+        return res.data;
+      })
+      // eslint-disable-next-line no-undef
+      .catch((err) => Promise.reject(err.response.data.message))
+  );
+}
+
 export function fetchEntityInsightsById(id) {
   return axios
     .get(`${config.serverUrl}/entity/${id}/insights`)
