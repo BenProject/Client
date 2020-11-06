@@ -38,10 +38,10 @@ export default function ResultsContainer() {
           entity.onClick = () => {
             history.push(`/entity/${entity.id}/properties`);
           };
-          entity.relations.forEach((relation) => {
-            relation.onClick = () =>
-              history.push(`/entity/${relation.id}/properties`);
-          });
+          // entity.relations.forEach((relation) => {
+          //   relation.onClick = () =>
+          //     history.push(`/entity/${relation.id}/properties`);
+          // });
         });
         setEntities(entities);
       })

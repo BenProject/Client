@@ -6,6 +6,7 @@ export function fetchAllCategories() {
   return axios
     .get(`${config.serverUrl}/types/entities`)
     .then((res) => {
+      console.log(res.data)
       return res.data;
     })
     .catch((err) => Promise.reject(err.response.data.message));

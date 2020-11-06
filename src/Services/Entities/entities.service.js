@@ -6,7 +6,7 @@ export function fetchEntitiesByParams(params, pageNumber, entitiesPerPage) {
   return (
     axios
       .post(`${config.serverUrl}/entities/search`, {
-        ...params,
+        params,
         pageNumber: pageNumber,
         entitiesPerPage: entitiesPerPage,
       })

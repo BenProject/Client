@@ -19,8 +19,13 @@ export default function AdvancedSearchParams({ typeId }) {
         name: key,
         label: key,
         type: config.OntologyToHtml.entityTypeToInput[value],
-        onChange: (event) =>
-          dispatch(updateParam(event.target.name, event.target.value)),
+        onChange: (event) => {
+          if (event.target.type === 'number') {
+            dispatch(updateParam(event.target.name, +event.target.value));
+          } else {
+            dispatch(updateParam(event.target.name, event.target.value));
+          }
+        },
       };
     });
   }
