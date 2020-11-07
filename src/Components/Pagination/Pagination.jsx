@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     direction: 'ltr',
     marginRight: theme.spacing(2),
     marginLeft: theme.spacing(2),
+    paddingBottom: theme.spacing(1),
 
     '& .MuiPagination-ul': {
       display: 'flex',
