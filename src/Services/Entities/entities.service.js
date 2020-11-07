@@ -2,13 +2,19 @@
 import axios from 'axios';
 import config from '../../Config';
 
-export function fetchEntitiesByParams(params, pageNumber, entitiesPerPage) {
+export function fetchEntitiesByParams(
+  params,
+  pageNumber,
+  entitiesPerPage,
+  entityType = null
+) {
   return (
     axios
       .post(`${config.serverUrl}/entities/search`, {
         params,
         pageNumber: pageNumber,
         entitiesPerPage: entitiesPerPage,
+        entityType: entityType,
       })
       .then((res) => {
         return res.data;
@@ -19,7 +25,6 @@ export function fetchEntitiesByParams(params, pageNumber, entitiesPerPage) {
 }
 
 export function fetchNumberOfPagesByParams(params, entitiesPerPage) {
-  console.log(params)
   return (
     axios
       .post(`${config.serverUrl}/entities/pageCount`, {

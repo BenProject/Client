@@ -11,7 +11,7 @@ import {
   resetParams,
 } from '../../Redux/Actions/AdvancedSearchActions';
 
-export default function AdvancedSearchParams({ typeId }) {
+export default function OntologyParams({ typeId }) {
   const [params, setParams] = useState({ must: [], optional: [] });
   const dispatch = useDispatch();
 
@@ -61,6 +61,6 @@ export default function AdvancedSearchParams({ typeId }) {
   );
 }
 
-AdvancedSearchParams.propTypes = {
+OntologyParams.propTypes = {
   typeId: string,
 };

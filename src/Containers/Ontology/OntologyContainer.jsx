@@ -1,24 +1,20 @@
+import { func, string } from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import Button from '../../Components/Buttons/Button';
 import Select from '../../Components/Select/Select';
 import config from '../../Config';
-import {
-  searchButtonLabel,
-  selectEntityTypeLabel,
-} from '../../Constants/labelConstants';
+import { selectEntityTypeLabel } from '../../Constants/labelConstants';
 import { fetchAllCategories } from '../../Services/Ontology/ontology.service';
-import AdvancedSearchParams from './AdvancedSearchParams';
+import OntologyParams from './OntologyParams';
 import './advancedSearch.css';
-import { useHistory } from 'react-router-dom';
 
-export default function AdvancedSearchContainer() {
+export default function OntologyContainer({
+  onSubmit,
+  formButtonLabel,
+  title,
+}) {
   const [selected, setSelected] = useState('');
   const [categories, setCategories] = useState([]);
-  const history = useHistory();
-
-  const handleSelected = (event) => {
-    setSelected(event.target.value);
-  };
 
   useEffect(() => {
     fetchAllCategories()
@@ -30,13 +26,13 @@ export default function AdvancedSearchContainer() {
       });
   }, []);
 
-  function onSubmit(event) {
-    event.preventDefault();
-    history.push('/entities/results');
-  }
+  const handleSelected = (event) => {
+    setSelected(event.target.value);
+  };
 
   return (
     <div className="advanced-search-container">
+      <div className="advanced-search-container__title">{title}</div>
       <div className="advanced-search-container__select">
         <Select
           value={selected}
@@ -51,11 +47,11 @@ export default function AdvancedSearchContainer() {
         className="advanced-search-container__form-container"
       >
         <div className="advanced-search-container__params">
-          <AdvancedSearchParams typeId={selected}></AdvancedSearchParams>
+          <OntologyParams typeId={selected}></OntologyParams>
         </div>
         {selected ? (
           <div className="advanced-search-container__footer">
-            <Button type="submit" buttonText={searchButtonLabel}></Button>
+            <Button type="submit" buttonText={formButtonLabel}></Button>
           </div>
         ) : (
           <div></div>
@@ -64,3 +60,9 @@ export default function AdvancedSearchContainer() {
     </div>
   );
 }
+
+OntologyContainer.propTypes = {
+  title: string.isRequired,
+  onSubmit: func,
+  formButtonLabel: string,
+};

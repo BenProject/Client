@@ -6,19 +6,26 @@
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-rows: 1fr 6fr;
-    grid-template-areas: "select" "form";
+    grid-template-rows: 0.5fr 1fr 6fr;
+    grid-template-areas: "title" "select" "form";
     .advanced-search-container__select {
         grid-area: select;
     }
+    .advanced-search-container__title {
+        grid-area: title;
+        text-align: center;
+        font-family: "Lato", sans-serif;
+        font-weight: bold;
+    }
+
     .advanced-search-container__form-container {
         height: 100%;
         width: 100%;
-        grid-area: "form";
+        grid-area: form;
         display: grid;
         grid-template-rows: 5fr 1fr;
         grid-template-areas: "params" "button";
-
+        
         .advanced-search-container__params {
             grid-area: params;
         }

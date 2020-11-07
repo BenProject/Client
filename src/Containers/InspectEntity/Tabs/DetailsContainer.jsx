@@ -5,7 +5,6 @@ import {
   fetchEntityDetailsById,
 } from '../../../Services/Entities/entities.service';
 import Entity from '../../../Components/Entity/Entity';
-import { useHistory } from 'react-router-dom';
 import { makeStyles, Modal } from '@material-ui/core';
 import IconButton from '../../../Components/Buttons/IconButton';
 import { Add } from '@material-ui/icons';
@@ -35,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function DetailsContainer({ entityId }) {
   const classes = useStyles();
-  const history = useHistory();
   const [open, setOpen] = useState(false);
   const [editDetail, setEditDetail] = useState({ key: '', value: '' });
 

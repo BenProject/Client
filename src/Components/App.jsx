@@ -5,9 +5,10 @@ import SearchContainer from '../Containers/SearchContainer';
 import TopBarContainer from '../Containers/TopBarContainer';
 import { Route, Switch } from 'react-router-dom';
 import Page from './Page/Page';
-import AdvancedSearchContainer from '../Containers/AdvancedSearch/AdvancedSearchContainer';
+import AdvancedSearchContainer from '../Containers/AdvancedSearchContainer';
 import EntitiesContainer from '../Containers/EntitiesContainer';
 import InspectEntityContainer from '../Containers/InspectEntity/InspecEntityContainer';
+import CreateEntityContainer from '../Containers/CreateEntityContainer';
 
 const App = () => {
   const [theme, toggleTheme] = useTheme();
@@ -32,6 +33,9 @@ const App = () => {
                 </Route>
                 <Route path="/entity/:entityId/:inspectStatus">
                   <InspectEntityContainer />
+                </Route>
+                <Route path="/create-entity" exact>
+                  <CreateEntityContainer />
                 </Route>
               </Switch>
             </div>
