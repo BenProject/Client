@@ -7,6 +7,8 @@ import { selectEntityTypeLabel } from '../../Constants/labelConstants';
 import { fetchAllCategories } from '../../Services/Ontology/ontology.service';
 import OntologyParams from './OntologyParams';
 import './advancedSearch.css';
+import { useDispatch } from 'react-redux';
+import { updateType } from '../../Redux/Actions/AdvancedSearchActions';
 
 export default function OntologyContainer({
   onSubmit,
@@ -16,9 +18,12 @@ export default function OntologyContainer({
   const [selected, setSelected] = useState('');
   const [categories, setCategories] = useState([]);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     fetchAllCategories()
       .then((categories) => {
+        console.log(categories);
         setCategories(categories);
       })
       .catch((err) => {
@@ -28,6 +33,11 @@ export default function OntologyContainer({
 
   const handleSelected = (event) => {
     setSelected(event.target.value);
+    dispatch(
+      updateType(
+        categories.find((category) => category.id === event.target.value).type
+      )
+    );
   };
 
   return (

@@ -31,11 +31,13 @@ function IntermediateCreating() {
   const params = useSelector((state) =>
     state.getIn(['OntologyParams', 'params'])
   );
-
+  const entityType = useSelector((state) =>
+    state.getIn(['OntologyParams', 'entityType'])
+  );
   const history = useHistory();
 
   useEffect(() => {
-    createEntity(params)
+    createEntity(params.toJS(), entityType)
       .then((entityId) => history.push(`/entity/${entityId}/properties`))
       .catch((err) => console.log(err));
   }, []);

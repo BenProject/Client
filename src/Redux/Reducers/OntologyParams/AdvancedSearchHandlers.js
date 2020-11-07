@@ -9,4 +9,7 @@ export default {
       return fromJS({});
     });
   },
+  updateType: (state, action) => {
+    return state.update('entityType', () => fromJS(action.entityType));
+  },
 };

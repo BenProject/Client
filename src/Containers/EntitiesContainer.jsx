@@ -31,8 +31,16 @@ export default function ResultsContainer() {
     state.getIn(['OntologyParams', 'params'])
   );
 
+  const entityType = useSelector((state) =>
+    state.getIn(['OntologyParams', 'entityType'])
+  );
   useEffect(() => {
-    fetchEntitiesByParams(params.toJS(), pageNumber, config.entitiesPerPage)
+    fetchEntitiesByParams(
+      params.toJS(),
+      pageNumber,
+      config.entitiesPerPage,
+      entityType
+    )
       .then((entities) => {
         entities.forEach((entity) => {
           entity.onClick = () => {
