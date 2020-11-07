@@ -89,3 +89,13 @@ export function createEntity(properties, entityType) {
     .then((res) => res.data.id)
     .catch((err) => Promise.reject(err.response.data.message));
 }
+
+export function fetchSuggestions(maxNumberOfSuggesions, name) {
+  return axios
+    .post(`${config.serverUrl}/entities/suggestions`, {
+      name: name,
+      suggestionsCount: maxNumberOfSuggesions,
+    })
+    .then((res) => res.data)
+    .catch((err) => Promise.reject(err.response.data.message));
+}

@@ -12,5 +12,6 @@ config.OntologyToHtml = {
 };
 config.maxNumberOfHopsAllowed = 10;
 config.entitiesPerPage = 12;
+config.maxNumberOfSuggestions = 5;
 
 export default config;
