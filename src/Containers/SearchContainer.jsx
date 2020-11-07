@@ -13,13 +13,32 @@ import config from '../Config';
 import { useHistory } from 'react-router-dom';
 import { Autocomplete } from '@material-ui/lab';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: '90%',
     backgroundColor: 'inherit',
+    display: 'grid',
+    gridTemplateAreas: `"search" "autocomplete"`,
+    gridTemplateRows: '1fr 1fr',
+    gap: theme.spacing(1),
+    margin: 'auto',
+    // justifyContent: 'center',
+    // alignItems: 'center',
+  },
+  search: {
+    gridArea: 'search',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 'auto',
+  },
+  autocomplete: {
+    gridArea: 'autocomplete',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    marginBottom: 'auto',
   },
 }));
 
@@ -37,23 +56,25 @@ export default function SearchContainer() {
 
   return (
     <Card elevation={0} className={classes.root}>
-      <div>
-        <Input
-          label={searchInputLabel}
-          onChange={onInputChange}
-          type="text"
-        ></Input>
+      <div className={classes.search}>
+        <div>
+          <Input
+            label={searchInputLabel}
+            onChange={onInputChange}
+            type="text"
+          ></Input>
+        </div>
+        <div>
+          <Button buttonText={searchButtonLabel}></Button>
+        </div>
+        <div>
+          <Button
+            href="advanced-search"
+            buttonText={advancedSearchButtonLabel}
+          ></Button>
+        </div>
       </div>
-      <div>
-        <Button buttonText={searchButtonLabel}></Button>
-      </div>
-      <div>
-        <Button
-          href="advanced-search"
-          buttonText={advancedSearchButtonLabel}
-        ></Button>
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div className={classes.autocomplete}>
         {suggestions.map((suggestion) => (
           <Button
             key={uuid()}
