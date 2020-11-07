@@ -1,7 +1,7 @@
 import Input from '../Components/Inputs/Input';
 import Button from '../Components/Buttons/Button';
 import React, { useState } from 'react';
-import { Card, makeStyles, TextField } from '@material-ui/core';
+import { Card, makeStyles } from '@material-ui/core';
 import {
   advancedSearchButtonLabel,
   searchButtonLabel,
@@ -11,34 +11,28 @@ import { v4 as uuid } from 'uuid';
 import { fetchSuggestions } from '../Services/Entities/entities.service';
 import config from '../Config';
 import { useHistory } from 'react-router-dom';
-import { Autocomplete } from '@material-ui/lab';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '90%',
     backgroundColor: 'inherit',
-    display: 'grid',
-    gridTemplateAreas: `"search" "autocomplete"`,
-    gridTemplateRows: '1fr 1fr',
-    gap: theme.spacing(1),
-    margin: 'auto',
-    // justifyContent: 'center',
-    // alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'column',
   },
   search: {
-    gridArea: 'search',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 'auto',
+    paddingTop: theme.spacing(1),
+    marginTop: theme.spacing(1),
   },
   autocomplete: {
-    gridArea: 'autocomplete',
+    // gridArea: 'autocomplete',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    marginBottom: 'auto',
+    // marginBottom: 'auto',
   },
 }));
 
