@@ -48,10 +48,10 @@ export default function DetailsContainer({ entityId }) {
   useEffect(() => {
     fetchEntityDetailsById(entityId)
       .then((details) => {
-        details.relations.forEach((relation) => {
-          relation.onClick = () =>
-            history.push(`/entity/${relation.id}/properties`);
-        });
+        // details.relations.forEach((relation) => {
+        //   relation.onClick = () =>
+        //     history.push(`/entity/${relation.id}/properties`);
+        // });
         details.properties.forEach((prop) => {
           prop.onClick = (prop) => {
             const [key, value] = getKeyAndValOfObject(prop);

@@ -19,10 +19,11 @@ export function fetchEntitiesByParams(params, pageNumber, entitiesPerPage) {
 }
 
 export function fetchNumberOfPagesByParams(params, entitiesPerPage) {
+  console.log(params)
   return (
     axios
       .post(`${config.serverUrl}/entities/pageCount`, {
-        ...params,
+        params,
         entitiesPerPage: entitiesPerPage,
       })
       .then((res) => {
