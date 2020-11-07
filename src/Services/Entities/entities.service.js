@@ -80,11 +80,12 @@ export function editEntityFieldById(id, key, value) {
     .catch((err) => Promise.reject(err.response.data.message));
 }
 
-export function createEntity(properties) {
+export function createEntity(properties, entityType) {
   return axios
     .post(`${config.serverUrl}/entity`, {
       properties,
+      type: entityType,
     })
-    .then((res) => res.data)
+    .then((res) => res.data.id)
     .catch((err) => Promise.reject(err.response.data.message));
 }
