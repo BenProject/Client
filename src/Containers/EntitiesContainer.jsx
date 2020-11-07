@@ -28,7 +28,7 @@ export default function ResultsContainer() {
 
   const history = useHistory();
   const params = useSelector((state) =>
-    state.getIn(['AdvancedSearch', 'params'])
+    state.getIn(['OntologyParams', 'params'])
   );
 
   useEffect(() => {

@@ -79,3 +79,12 @@ export function editEntityFieldById(id, key, value) {
     .then((res) => res.data)
     .catch((err) => Promise.reject(err.response.data.message));
 }
+
+export function createEntity(properties) {
+  return axios
+    .post(`${config.serverUrl}/entity`, {
+      properties,
+    })
+    .then((res) => res.data)
+    .catch((err) => Promise.reject(err.response.data.message));
+}

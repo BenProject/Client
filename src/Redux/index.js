@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux-immutable';
 import ThemeReducer from './Reducers/Themes';
-import AdvancedSearchReducer from './Reducers/AdvancedSearch';
+import OntologyParamsReducer from './Reducers/OntologyParams';
 
 const reducers = combineReducers({
-  AdvancedSearch: AdvancedSearchReducer,
+  OntologyParams: OntologyParamsReducer,
   Themes: ThemeReducer,
 });
 
