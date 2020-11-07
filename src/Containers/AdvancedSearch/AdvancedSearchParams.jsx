@@ -6,7 +6,10 @@ import FieldList from '../../Components/FieldList/List';
 import './advancedSearch.css';
 import { getKeyAndValOfObject } from '../../Utils/ObjectUtils';
 import { useDispatch } from 'react-redux';
-import { updateParam } from '../../Redux/Actions/AdvancedSearchActions';
+import {
+  updateParam,
+  resetParams,
+} from '../../Redux/Actions/AdvancedSearchActions';
 
 export default function AdvancedSearchParams({ typeId }) {
   const [params, setParams] = useState({ must: [], optional: [] });
@@ -29,6 +32,11 @@ export default function AdvancedSearchParams({ typeId }) {
       };
     });
   }
+  useEffect(() => {
+    let mounted = true;
+    if (mounted) dispatch(resetParams());
+    return () => (mounted = false);
+  }, []);
 
   useEffect(() => {
     if (typeId)
