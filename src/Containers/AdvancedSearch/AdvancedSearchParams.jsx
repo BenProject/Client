@@ -32,13 +32,10 @@ export default function AdvancedSearchParams({ typeId }) {
       };
     });
   }
-  useEffect(() => {
-    let mounted = true;
-    if (mounted) dispatch(resetParams());
-    return () => (mounted = false);
-  }, []);
 
   useEffect(() => {
+    dispatch(resetParams());
+
     if (typeId)
       fetchCategoryById(typeId)
         .then((res) => {
